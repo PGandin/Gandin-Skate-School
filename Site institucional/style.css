@@ -6,15 +6,20 @@
 }
 
 body {
-  background: url('https://wallpapers.com/images/hd/skateboarderche-esegue-un-trucco-in-uno-skate-park-87bgws1hq3ci9gg7.jpg') no-repeat center center fixed; /* Alterado para fixed */
-  background-size: cover; /* Para cobrir toda a tela sem tarja branca */
-  min-height: 100vh; /* Garantir que a altura mínima do corpo seja 100% da altura da viewport */
+  background: url('https://wallpapers.com/images/hd/skateboarderche-esegue-un-trucco-in-uno-skate-park-87bgws1hq3ci9gg7.jpg') no-repeat center center fixed;
+  /* Alterado para fixed */
+  background-size: cover;
+  /* Para cobrir toda a tela sem tarja branca */
+  min-height: 100vh;
+  /* Garantir que a altura mínima do corpo seja 100% da altura da viewport */
   display: flex;
   flex-direction: column;
 }
 
 /* Cabeçalho/ Header */
 .header {
+
+  position: fixed;
   background-color: #f9b208;
   display: flex;
   align-items: center;
@@ -22,27 +27,32 @@ body {
   padding: 10px 20px;
   font-size: 1.5rem;
   color: #333;
-  position: relative; /* Para ajustar o posicionamento se necessário */
-  top: 0; /* Alinhamento no topo */
+  top: 0;
   z-index: 10;
+  width: 100%;
+  height: 60px;
+
+
+
 }
 
+.header h1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+
 .menu-icon {
+  width: 25px;
+  padding: 10px 20px;
+  background-color: #f9b208;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
-  border-radius: 7px;
-  cursor: pointer;
-  background-color: #f9b208;
-  border: none;
-  width: 60px;
-  height: 60px;
-  z-index: 2;
 }
 
 .menu-icon:hover {
-  background-color: #f8a602;
+  background-color: #fa8900;
 }
 
 .user-icon {
@@ -54,23 +64,30 @@ body {
 
 /* Menu oculto */
 .menu-aberto {
-  display: none; /* Oculta o menu por padrão */
+  display: none;
+  /* Oculta o menu por padrão */
   justify-content: space-between;
   position: absolute;
-  top: 60px; /* Abaixo do cabeçalho */
+  top: 60px;
+  /* Abaixo do cabeçalho */
   left: 10px;
   background-color: #333;
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  opacity: 0; /* Inicia com opacidade 0 */
-  transition: opacity 0.3s ease; /* Animação de opacidade */
-  z-index: 20; /* Adicionando um índice z para o menu */
+  opacity: 0;
+  /* Inicia com opacidade 0 */
+  transition: opacity 0.3s ease;
+  /* Animação de opacidade */
+  z-index: 20;
+  /* Adicionando um índice z para o menu */
 }
 
 .menu-aberto.show {
-  display: block; /* Mostra o menu */
-  opacity: 1; /* Opacidade total */
+  display: block;
+  /* Mostra o menu */
+  opacity: 1;
+  /* Opacidade total */
 }
 
 .menu-aberto a {
@@ -93,7 +110,7 @@ body {
   font-size: 1rem;
   outline: none;
   /* Animação de cor de fundo */
-  transition: background-color 0.2s ease; 
+  transition: background-color 0.2s ease;
 }
 
 .menu-aberto button:hover {
@@ -150,22 +167,64 @@ body {
 }
 
 .title-container {
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+  /* Espaçamento entre seções */
   text-align: center;
-  margin: 50px 0; /* Espaço entre o cabeçalho e a seção da história */
+  margin: 50px 0;
 }
 
 .title-container h1 {
   font-size: 3rem;
-  color: #fff;
+  color: #ffffff;
   margin-bottom: 10px;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .title-container p {
+
+  line-height: 1.5;
   font-size: 1.2rem;
-  color: #f9b208;
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+  color: #f8a602;
+
 }
+
+.title-containerr {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.677);
+  border-radius: 10px;
+  margin: 20px;
+  /* Espaçamento entre seções */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+
+}
+
+.title-containerr p {
+  font-size: 1rem;
+  color: #000000;
+  line-height: 1.5;
+  font-size: 1.2rem;
+}
+
+.title-containerr h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+
+.title-container2 {
+  margin: 20px;
+  /* Espaçamento entre seções */
+  text-align: center;
+  margin: 50px 0;
+  color: #f8a602;
+}
+
 
 /* Botão Principal */
 .main-button {
@@ -185,83 +244,243 @@ body {
   color: #333;
 }
 
-/* Rodapé */
-.footer {
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
+/* Estilo para o cabeçalho (header) */
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
   text-align: center;
-  font-size: 0.8rem;
-  color: #fff;
-  opacity: 0.6;
 }
+
+/* Estilo para o conteúdo da página */
+.main-content {
+  min-height: 100vh;
+  /* Garante que o conteúdo ocupe ao menos toda a altura da página */
+  padding-bottom: 50px;
+  /* Espaço para o rodapé */
+}
+
+/* Estilo para o rodapé */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  border-top: 5px solid #333;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 
 /* Nossa História */
 .skate-history {
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.677);
   border-radius: 10px;
-  margin: 20px; /* Espaçamento entre seções */
+  margin: 20px;
+  margin-top: 50px;
+  margin-right: 250px;
+  /* Espaçamento entre seções */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .skate-history h2 {
+  text-align: center;
   font-size: 2rem;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 10px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  font-size: 3rem;
 }
 
 .skate-history p {
   font-size: 1rem;
-  color: #555;
+  color: #000000;
   line-height: 1.5;
+  font-size: 1.2rem;
 }
 
-/* Nivelamento */
 .nivelamento {
-  display: flex; /* Corrigido de flexbox para flex */
-  flex-direction: column; /* Para empilhar os elementos verticalmente */
-  align-items: center; /* Centraliza os itens no eixo transversal */
-  justify-content: center; /* Centraliza os itens no eixo principal */
-  
-  width: 700px;
-  margin: 0 auto; /* Adicionado para centralizar horizontalmente */
-  background-color: #ca971f77;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* Altere para 100% para ocupar todo o espaço disponível */
+  max-width: 700px;
+  /* Define um limite máximo de largura */
+  margin: 0 auto;
+  margin-top: 80px;
+  /* Distância do header */
+  margin-bottom: 20px;
+  /* Distância para baixo */
+  background-color: #fcea9d48;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  text-align: center; /* Centraliza o texto */
-}
+  text-align: center;
+  padding: 20px;
+  /* Garante que haja espaço interno para o conteúdo */
+  box-sizing: border-box;
+  /* Inclui padding no cálculo do tamanho */
 
-.nivelamento h2 {
-  font-size: 2rem;
-  color: #ffffff;
-  margin-bottom: 15px;
 }
 
 .nivelamento label {
   font-size: 1.2rem;
-  color: #ffffff;
+  color: #000000;
   margin: 10px 0;
-  display: block; /* Faz cada label ocupar uma linha */
+  display: block;
 }
 
+/* Ajuste na descrição para garantir que ocupe o espaço sem ser cortada */
 .nivelamento .descricao {
   font-size: 0.9rem;
-  color: #777;
-  margin-top: 5px;
+  color: #000000;
+  margin-top: 10px;
+  width: 100%;
+  /* Garante que a descrição ocupe toda a largura disponível */
+  box-sizing: border-box;
+  /* Inclui margem no cálculo da largura */
 }
 
 
+/* Quando a descrição é exibida, adicionamos opacidade e transform */
+.nivelamento .descricao.show {
+  opacity: 1;
+  visibility: visible;
+  /* Torna o elemento visível */
+  transform: translateY(0);
+  /* Movimento suave para a posição final */
+  pointer-events: auto;
+  /* Permite interação com o elemento quando visível */
+
+}
+
+.nivelamento h2 {
+  font-size: 2rem;
+  color: #000000;
+  margin-bottom: 10px;
+  /* Reduzindo o espaçamento abaixo do título */
+}
+
+
+.botao-nivelamento {
+  background-color: #f9b208;
+  ;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.botao-nivelamento:hover {
+  background-color: #a87a14;
+}
+
+/* Caixa customizada com efeito de hover */
+input[type="radio"]+label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ca971f;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+input[type="radio"]:checked+label::before {
+  background-color: #ca971f;
+  border-color: #a87a14;
+}
+
+/* Efeito de hover */
+input[type="radio"]:hover+label::before {
+  background-color: #f2d0a9;
+  border-color: #ca971f;
+}
+
+/* Garantir que a sidebar tenha altura completa e o conteúdo ocupe o restante */
+.user-page {
+  display: flex;
+}
+
+/* Barra lateral */
+.sidebar {
+  text-align: center;
+  margin: auto;
+  padding-bottom: 500px;
+  position: fixed;
+  background-color: #333;
+  color: #fff;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #f9b208;
+}
+
+.sidebar a {
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+  margin: 10px 0;
+  transition: color 0.3s ease;
+}
+
+.sidebar a:hover {
+  color: #f9b208;
+}
+
+/* Conteúdo principal */
+.main-content {
+  display: flex;
+  /*gap: 20px;*/
+  padding-left: 350px;
+  margin: auto;
+  margin-right: 300px;
+}
+
+/* Cards de vídeo */
+.video-card {
+  margin-top: 25px;
+  background-color: #f9b10885;
+  border-radius: 3px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  text-align: center;
+  border-radius: 15px;
+
+}
+
+.video-card video {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.video-card p {
+  margin-top: 50px;
+  font-size: 1rem;
+  color: #000000;
+}
+
+.imagem-shape img {
+  display: flex;
+  margin: auto;
   
- 
-
-
-
-
-
-
-
-
-
-
-
+  
+}

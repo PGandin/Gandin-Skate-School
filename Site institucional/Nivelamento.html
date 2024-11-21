@@ -1,95 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gandin Skate School</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon"
-      href="c:\Users\pedro\OneDrive\Área de Trabalho\Projeto Individual\Gandin-Skate-School\Imagens usadas\ImagenSite.ico"
-      type="image/x-icon">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gandin Skate School</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon"
+    href="C:\Users\pedro\OneDrive\Área de Trabalho\Projeto Individual\Gandin-Skate-School\Imagens PI GSS\Imagens usadas\ImagenSite.ico"
+    type="image/x-icon">
+
+    <script src="./js/sessao.js"></script>
+
 </head>
+
 <body>
 
-    <div class="menu-aberto" id="menuAba">
+  <div class="menu-aberto" id="menuAba">
 
-        <a href="PáginaInicial.html"><button>Página Inicial</button></a>
-        <a href="sobre.html"><button>Nossa História</button></a>
-        <a href="Login.html"><button>Login</button></a>
-        <a href="Cadastro.html"><button>Cadastro</button></a>
-    
-      </div>
+    <a href="index.html"><button>Página Inicial</button></a>
+        <a href="simulador.html"><button>Nossa História</button></a>
+        <a href="login.html"><button>Login</button></a>
+        <a href="cadastro.html"><button>Cadastro</button></a>
 
-      <header class="header">
-        <button class="menu-icon" onclick="MenuInteracao()">☰</button>
-        <h1>Gandin Skate School</h1>
-        <div class="user-icon">🔒</div>
-      </header>
+  </div>
+
+  <header class="header">
+    <button class="menu-icon" onclick="MenuInteracao(this)">☰</button>
+    <h1>Gandin Skate School</h1>
+    <div class="user-icon">🔒</div>
+  </header>
+
+  <div class="nivelamento">
+    <h2>Informe o seu nível de skate:</h2>
 
     <div class="nivelamento">
-        <h2>Informe o seu nível de skate:</h2>
+      <label>
+        <input type="radio" name="NivelSkate" class="nivel-checkbox" value="iniciantes" onclick="exibirDescricao(this)">
+        Iniciante
+      </label>
+      <p class="descricao" id="descricao-iniciante">Você é novo no skate e está começando a aprender o básico, como
+        equilibrar-se e se movimentar.</p>
 
-        <label>
-            <input type="radio" name="NivelSkate" class="nivel-checkbox" value="iniciantes" onclick="exibirDescricao()"> Iniciante
-        </label>
-        <p class="descricao" id="descricao-iniciante" style="display: none;">Você é novo no skate e está começando a aprender o básico, como equilibrar-se e se movimentar.</p>
-    
+      <label>
+        <input type="radio" name="NivelSkate" class="nivel-checkbox" value="aprendiz" onclick="exibirDescricao(this)">
+        Aprendiz
+      </label>
+      <p class="descricao" id="descricao-aprendiz">Você já conhece alguns truques e está se familiarizando com manobras
+        simples.</p>
 
-        <label>
-            <input type="radio" name="NivelSkate" class="nivel-checkbox" value="aprendiz" onclick="exibirDescricao()"> Aprendiz
-        </label>
-        <p class="descricao" id="descricao-aprendiz" style="display: none;">Você já conhece alguns truques e está se familiarizando com manobras simples.</p>
-    
+      <label>
+        <input type="radio" name="NivelSkate" class="nivel-checkbox" value="intermediario"
+          onclick="exibirDescricao(this)">
+        Intermediário
+      </label>
+      <p class="descricao" id="descricao-intermediario">Você tem experiência e consegue realizar manobras mais avançadas
+        com segurança.</p>
 
-        <label>
-            <input type="radio" name="NivelSkate" class="nivel-checkbox" value="intermediario" onclick="exibirDescricao()"> Intermediário
-        </label>
-        <p class="descricao" id="descricao-intermediario" style="display: none;">Você tem experiência e consegue realizar manobras mais avançadas com segurança.</p>
-    
+      <label>
+        <input type="radio" name="NivelSkate" class="nivel-checkbox" value="avancado" onclick="exibirDescricao(this)">
+        Avançado
+      </label>
+      <p class="descricao" id="descricao-avancado">Você domina várias manobras e está sempre em busca de desafios
+        maiores.</p>
 
-        <label>
-            <input type="radio" name="NivelSkate" class="nivel-checkbox" value="avancado" onclick="exibirDescricao()"> Avançado
-        </label>
-        <p class="descricao" id="descricao-avancado" style="display: none;">Você domina várias manobras e está sempre em busca de desafios maiores.</p>
-    
-
-        <label>
-            <input type="radio" name="NivelSkate" class="nivel-checkbox" value="profissional" onclick="exibirDescricao()"> Profissional
-        </label>
-        <p class="descricao" id="descricao-profissional" style="display: none;">Você é um skatista experiente e participa de competições, buscando sempre aprimorar suas habilidades.</p>
-        
+      <label>
+        <input type="radio" name="NivelSkate" class="nivel-checkbox" value="profissional"
+          onclick="exibirDescricao(this)">
+        Profissional
+      </label>
+      <p class="descricao" id="descricao-profissional">Você é um skatista experiente e participa de competições,
+        buscando sempre aprimorar suas habilidades.</p>
     </div>
-    
-</body>
-</html>
-<script>
-    function exibirDescricao(checkbox) {
-    // Esconde todas as descrições
-    const descricoes = document.querySelectorAll('.descricao');
-    descricoes.forEach(descricao => {
-        descricao.style.display = 'none';
-    });
 
-    // Exibe a descrição correspondente se o checkbox estiver marcado
-    if (checkbox.checked) {
-        const nivel = checkbox.value;
-        const descricaoElement = document.getElementById(`descricao-${nivel}`);
-        descricaoElement.style.display = 'block';
-    }
-}
-function MenuInteracao() {
-    var menu = document.getElementById("menuAba");
-    if (menu.style.display === "none" || menu.style.display === "") {
-    menu.style.display = "block"; // Mostra o menu
-    setTimeout(() => {
-      menu.classList.add("show"); // Adiciona a classe show
-    }, 10); // Adiciona um pequeno atraso para que a animação funcione
-  } else {
-    menu.classList.remove("show"); // Remove a classe show
-    setTimeout(() => {
-      menu.style.display = "none"; // Oculta o menu após a animação
-    }, 300); // Aguarda a animação terminar antes de ocultar
-  }
-  }
+    <button class ="botao-nivelamento" onclick="redirigir()">
+      Enviar
+    </button>
 
-</script>
+    <script>
+      function redirigir() {
+        
+        window.location.href = "outraPagina.html"
+      }
+
+
+      function exibirDescricao(checkbox) {
+        // Esconde todas as descrições
+        const descricoes = document.querySelectorAll('.descricao')
+        descricoes.forEach(descricao => {
+          descricao.classList.remove('show') // Remove a classe 'show' para esconder
+        });
+
+        // Exibe a descrição correspondente se o checkbox estiver marcado
+        if (checkbox.checked) {
+          const nivel = checkbox.value;
+          const descricaoElement = document.getElementById(`descricao-${nivel}`)
+          descricaoElement.classList.add('show') // Adiciona a classe 'show' para mostrar com animação
+        }
+      }
+
+
+
+      function MenuInteracao() {
+        var menu = document.getElementById("menuAba")
+        if (menu.style.display === "none" || menu.style.display === "") {
+          menu.style.display = "block" // Mostra o menu
+          setTimeout(() => {
+            menu.classList.add("show") // Adiciona a classe show
+          }, 10); // Adiciona um pequeno atraso para que a animação funcione
+        } else {
+          menu.classList.remove("show") // Remove a classe show
+          setTimeout(() => {
+            menu.style.display = "none" // Oculta o menu após a animação
+          }, 300); // Aguarda a animação terminar antes de ocultar
+        }
+      }
+
+    </script>
