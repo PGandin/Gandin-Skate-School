@@ -477,7 +477,7 @@ input[type="radio"]:hover+label::before {
 }
 
 .video-card p {
-  margin-top: 50px;
+  margin-top: 10px;
   font-size: 1rem;
   color: #000000;
 }
@@ -488,3 +488,4 @@ input[type="radio"]:hover+label::before {
   
   
 }
+

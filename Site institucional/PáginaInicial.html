@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gandin Skate School</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon"
-      href="C:\Users\pedro\OneDrive\Área de Trabalho\Projeto Individual\Gandin-Skate-School\Imagens PI GSS\Imagens usadas\ImagenSite.ico"
-      type="image/x-icon">
-  </head>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gandin Skate School</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon"
+    href="C:\Users\pedro\OneDrive\Área de Trabalho\Projeto Individual\Gandin-Skate-School\Imagens PI GSS\Imagens usadas\ImagenSite.ico"
+    type="image/x-icon">
+</head>
 
 <body>
 
@@ -43,16 +44,16 @@
   function MenuInteracao() {
     var menu = document.getElementById("menuAba");
 
-  if (menu.style.display === "none" || menu.style.display === "") {
-    menu.style.display = "block"; // Mostra o menu
-    setTimeout(() => {
-      menu.classList.add("show"); // Adiciona a classe show
-    }, 10); // Adiciona um pequeno atraso para que a animação funcione
-  } else {
-    menu.classList.remove("show"); // Remove a classe show
-    setTimeout(() => {
-      menu.style.display = "none"; // Oculta o menu após a animação
-    }, 300); // Aguarda a animação terminar antes de ocultar
+    if (menu.style.display === "none" || menu.style.display === "") {
+      menu.style.display = "block"; // Mostra o menu
+      setTimeout(() => {
+        menu.classList.add("show"); // Adiciona a classe show
+      }, 10); // Adiciona um pequeno atraso para que a animação funcione
+    } else {
+      menu.classList.remove("show"); // Remove a classe show
+      setTimeout(() => {
+        menu.style.display = "none"; // Oculta o menu após a animação
+      }, 300); // Aguarda a animação terminar antes de ocultar
+    }
   }
-}
 </script>
