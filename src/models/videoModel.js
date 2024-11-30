@@ -18,6 +18,7 @@ function InserirResposta(nivelUsuario, video, idUsuario) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+
 function VerificarResposta(video, idUsuario) {
 
     var instrucaoSql = `
@@ -27,8 +28,18 @@ function VerificarResposta(video, idUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function kpiResposta(idUsuario) {
+
+    var instrucaoSql = `
+        SELECT Nivel, idVideo FROM Nivelamento WHERE fkCadastro = ${idUsuario} ORDER BY idVideo;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     InserirResposta,
     AtualizarResposta,
-    VerificarResposta
+    VerificarResposta,
+    kpiResposta
 };

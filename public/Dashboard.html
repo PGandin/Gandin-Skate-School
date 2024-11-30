@@ -7,12 +7,10 @@
   <title>Gandin Skate School</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Para os gráficos -->
   <link rel="stylesheet" href="./css/estilo.css">
-  <link rel="icon"
-    href="assets/Imagens PI GSS/Imagens usadas/ImagenSite.ico"
-    type="image/x-icon">
+  <link rel="icon" href="assets/Imagens PI GSS/Imagens usadas/ImagenSite.ico" type="image/x-icon">
 </head>
 
-<body>
+<body onload="VerificarProgresso()">
 
   <!-- Cabeçalho -->
   <header class="header">
@@ -33,15 +31,42 @@
       </h4>
 
     </aside>
-   
+
     <div class="dashboard-container">
       <!-- KPIs -->
       <div class="kpi-container">
-        <div class="kpi-box" id="kpi-iniciante">🟢Iniciante: 2/3</div>
-        <div class="kpi-box" id="kpi-intermediario">🟡Intermediário: 1/3</div>
-        <div class="kpi-box" id="kpi-avancado">🔴Avançado: 0/3</div>
+
+        <div class="kpi-box" id="kpi-iniciante">
+          <p>🟢Iniciante</p>
+          <select id="Iniciante" onchange="SelectIniciante()">
+            <option value=1>Ollie</option>
+            <option value=2>Varial</option>
+            <option value=3>Ollie de Front</option>
+          </select>
+          <p id="kpiIniciante"></p>
+        </div>
+
+        <div class="kpi-box" id="kpi-intermediario">
+          <p>🟡Intermediário</p>
+          <select id="Intermediario">
+            <option value=4>Flip</option>
+            <option value=5>Fakie Ollie</option>
+            <option value=6>Fakie Ollie de Front</option>
+          </select>
+          <p id="kpiIntermediario"></p>
+        </div>
+
+        <div class="kpi-box" id="kpi-avancado">
+          <p>🔴Avançado</p>
+          <select id="Avancado">
+            <option value=7>360 Varial</option>
+            <option value=8>Ollie de Back</option>
+            <option value=9>360 Flip</option>
+          </select>
+          <p id="kpiAvancado"></p>
+        </div>
       </div>
-  
+
       <!-- Gráficos -->
       <div class="charts-container">
         <div class="chart-box">
@@ -52,8 +77,306 @@
         </div>
       </div>
     </div>
-  
+
     <script src="js/scripts.js"></script>
-</head>
-<body>
-  
+    </head>
+
+    <body>
+      <script>
+
+        var listaJason
+
+        async function VerificarProgresso() {
+          try {
+            var idUsuario = sessionStorage.ID_USUARIO
+            const resposta = await fetch(`/video/kpiResposta/${idUsuario}`, {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            });
+
+            if (resposta.ok) {
+              const json = await resposta.json();
+              console.log(json)
+              if (json.length != 0) {
+                AtualizarKPI(json)
+                listaJason = json
+                return true;
+              }
+            }
+          } catch (erro) {
+            console.log(`#ERRO: ${erro}`);
+          }
+
+          return false;
+
+        }
+        function AtualizarKPI(ListaJson) {
+
+
+
+          for (var PosicaoListaJson = 0; PosicaoListaJson < ListaJson.length; PosicaoListaJson++) {
+
+            if (ListaJson[PosicaoListaJson].idVideo == 1) {
+
+              if (ListaJson[PosicaoListaJson].Nivel == 1) {
+                kpiIniciante.innerHTML = `Em andamento`
+              }
+              if (ListaJson[PosicaoListaJson].Nivel == 2) {
+                kpiIniciante.innerHTML = `Não tentei ainda`
+              }
+              if (ListaJson[PosicaoListaJson].Nivel == 3) {
+                kpiIniciante.innerHTML = `Já acertei`
+              }
+            }
+            if (ListaJson[PosicaoListaJson].idVideo == 4) {
+
+              if (ListaJson[PosicaoListaJson].Nivel == 1) {
+                kpiIntermediario.innerHTML = `Em andamento`
+              }
+              if (ListaJson[PosicaoListaJson].Nivel == 2) {
+                kpiIntermediario.innerHTML = `Não tentei ainda`
+              }
+              if (ListaJson[PosicaoListaJson].Nivel == 3) {
+                kpiIntermediario.innerHTML = `Já acertei`
+              }
+            }
+            if (ListaJson[PosicaoListaJson].idVideo == 7) {
+
+              if (ListaJson[PosicaoListaJson].Nivel == 1) {
+                kpiAvancado.innerHTML = `Em andamento`
+              }
+              if (ListaJson[PosicaoListaJson].Nivel == 2) {
+                kpiAvancado.innerHTML = `Não tentei ainda`
+              }
+              if (ListaJson[PosicaoListaJson].Nivel == 3) {
+                kpiAvancado.innerHTML = `Já acertei`
+              }
+            }
+          }
+        }
+
+        function SelectIniciante() {
+
+          var ListaJson = listaJason
+
+          if (Iniciante.value == 1) {
+
+            for (var PosicaoListaJson = 0; PosicaoListaJson < ListaJson.length; PosicaoListaJson++) {
+
+
+
+              if (ListaJson[PosicaoListaJson].idVideo == 1) {
+
+                if (ListaJson[PosicaoListaJson].Nivel == 1) {
+                  kpiIniciante.innerHTML = `Em andamento`
+                }
+                if (ListaJson[PosicaoListaJson].Nivel == 2) {
+                  kpiIniciante.innerHTML = `Não tentei ainda`
+                }
+                if (ListaJson[PosicaoListaJson].Nivel == 3) {
+                  kpiIniciante.innerHTML = `Já acertei`
+                }
+              }
+
+
+            }
+          }
+
+
+          if (Iniciante.value == 2) {
+
+            for (var PosicaoListaJson = 0; PosicaoListaJson < ListaJson.length; PosicaoListaJson++) {
+
+
+
+              if (ListaJson[PosicaoListaJson].idVideo == 2) {
+
+                if (ListaJson[PosicaoListaJson].Nivel == 1) {
+                  kpiIniciante.innerHTML = `Em andamento`
+                }
+                if (ListaJson[PosicaoListaJson].Nivel == 2) {
+                  kpiIniciante.innerHTML = `Não tentei ainda`
+                }
+                if (ListaJson[PosicaoListaJson].Nivel == 3) {
+                  kpiIniciante.innerHTML = `Já acertei`
+                }
+              }
+
+
+            }
+          }
+
+          if (Iniciante.value == 3) {
+
+            for (var PosicaoListaJson = 0; PosicaoListaJson < ListaJson.length; PosicaoListaJson++) {
+
+
+
+              if (ListaJson[PosicaoListaJson].idVideo == 3) {
+
+                if (ListaJson[PosicaoListaJson].Nivel == 1) {
+                  kpiIniciante.innerHTML = `Em andamento`
+                }
+                if (ListaJson[PosicaoListaJson].Nivel == 2) {
+                  kpiIniciante.innerHTML = `Não tentei ainda`
+                }
+                if (ListaJson[PosicaoListaJson].Nivel == 3) {
+                  kpiIniciante.innerHTML = `Já acertei`
+                }
+              }
+
+
+            }
+          }
+        }
+
+        function SelectIntermediario() {
+
+          var ListaJson = listaJason
+
+          if (Intermediario.value == 1) {
+
+            for (var PosicaoListaJson = 0; PosicaoListaJson < ListaJson.length; PosicaoListaJson++) {
+
+
+
+              if (ListaJson[PosicaoListaJson].idVideo == 4) {
+
+                if (ListaJson[PosicaoListaJson].Nivel == 1) {
+                  kpiIntermediario.innerHTML = `Em andamento`
+                }
+                else if (ListaJson[PosicaoListaJson].Nivel == 2) {
+                  kpiIntermediario.innerHTML = `Não tentei ainda`
+                }
+                else if (ListaJson[PosicaoListaJson].Nivel == 3) {
+                  kpiIntermediario.innerHTML = `Já acertei`
+                }
+              }
+
+
+            }
+          }
+
+
+          if (Intermediario.value == 2) {
+
+            for (var PosicaoListaJson = 0; PosicaoListaJson < ListaJson.length; PosicaoListaJson++) {
+
+
+
+              if (ListaJson[PosicaoListaJson].idVideo == 5) {
+
+                if (ListaJson[PosicaoListaJson].Nivel == 1) {
+                  kpiIntermediario.innerHTML = `Em andamento`
+                }
+                else if (ListaJson[PosicaoListaJson].Nivel == 2) {
+                  kpiIntermediario.innerHTML = `Não tentei ainda`
+                }
+                else if (ListaJson[PosicaoListaJson].Nivel == 3) {
+                  kpiIntermediario.innerHTML = `Já acertei`
+                }
+              }
+
+
+            }
+          }
+
+          if (Intermediario.value == 3) {
+
+            for (var PosicaoListaJson = 0; PosicaoListaJson < ListaJson.length; PosicaoListaJson++) {
+
+
+
+              if (ListaJson[PosicaoListaJson].idVideo == 6) {
+
+                if (ListaJson[PosicaoListaJson].Nivel == 1) {
+                  kpiIniciante.innerHTML = `Em andamento`
+                }
+                else if (ListaJson[PosicaoListaJson].Nivel == 2) {
+                  kpiIniciante.innerHTML = `Não tentei ainda`
+                }
+                else if (ListaJson[PosicaoListaJson].Nivel == 3) {
+                  kpiIniciante.innerHTML = `Já acertei`
+                }
+              }
+
+
+            }
+          }
+        }
+
+        function SelectAvancado() {
+
+          var ListaJson = listaJason
+
+          if (Avancado.value == 1) {
+
+            for (var PosicaoListaJson = 0; PosicaoListaJson < ListaJson.length; PosicaoListaJson++) {
+
+
+
+              if (ListaJson[PosicaoListaJson].idVideo == 7) {
+
+                if (ListaJson[PosicaoListaJson].Nivel == 1) {
+                  kpiAvancado.innerHTML = `Em andamento`
+                }
+                if (ListaJson[PosicaoListaJson].Nivel == 2) {
+                  kpiAvancado.innerHTML = `Não tentei ainda`
+                }
+                if (ListaJson[PosicaoListaJson].Nivel == 3) {
+                  kpiAvancado.innerHTML = `Já acertei`
+                }
+              }
+
+
+            }
+          }
+
+
+          if (Avancado.value == 2) {
+
+            for (var PosicaoListaJson = 0; PosicaoListaJson < ListaJson.length; PosicaoListaJson++) {
+
+
+
+              if (ListaJson[PosicaoListaJson].idVideo == 8) {
+
+                if (ListaJson[PosicaoListaJson].Nivel == 1) {
+                  kpiAvancado.innerHTML = `Em andamento`
+                }
+                if (ListaJson[PosicaoListaJson].Nivel == 2) {
+                  kpiAvancado.innerHTML = `Não tentei ainda`
+                }
+                if (ListaJson[PosicaoListaJson].Nivel == 3) {
+                  kpiAvancado.innerHTML = `Já acertei`
+                }
+              }
+
+
+            }
+          }
+
+          if (Avancado.value == 3) {
+
+            for (var PosicaoListaJson = 0; PosicaoListaJson < ListaJson.length; PosicaoListaJson++) {
+
+
+
+              if (ListaJson[PosicaoListaJson].idVideo == 9) {
+
+                if (ListaJson[PosicaoListaJson].Nivel == 1) {
+                  kpiAvancado.innerHTML = `Em andamento`
+                }
+                if (ListaJson[PosicaoListaJson].Nivel == 2) {
+                  kpiAvancado.innerHTML = `Não tentei ainda`
+                }
+                if (ListaJson[PosicaoListaJson].Nivel == 3) {
+                  kpiAvancado.innerHTML = `Já acertei`
+                }
+              }
+            }
+          }
+        }
+      </script>

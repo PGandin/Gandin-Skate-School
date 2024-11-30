@@ -531,6 +531,11 @@ input[type="radio"]:hover+label::before {
   max-width: 300px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.kpi-box select{
+  width: 100px;
 }
 
 .charts-container {

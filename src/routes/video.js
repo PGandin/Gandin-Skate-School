@@ -9,5 +9,8 @@ router.post("/GuardarResposta", function (req, res) {
 router.post("/VerificarResposta", function (req, res) {
     videoController.VerificarResposta(req, res);
 })
+router.get("/kpiResposta/:id", function (req, res) {
+    videoController.kpiResposta(req, res);
+})
 
 module.exports = router;

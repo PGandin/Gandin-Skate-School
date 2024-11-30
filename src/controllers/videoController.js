@@ -68,8 +68,28 @@ function VerificarResposta(req, res) {
         );
     
 }
+function kpiResposta(req, res) {
+    // Captura o parâmetro 'id' da URL
+    var idUsuario = req.params.id; // Corrigi aqui para acessar o parâmetro corretamente
+
+    // Chama a função no 'videoModel' passando o 'idUsuario'
+    videoModel.kpiResposta(idUsuario)
+        .then(function (resultado) {
+            res.json(resultado); // Retorna o resultado em formato JSON
+        })
+        .catch(function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao realizar a consulta! Erro: ",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage); // Responde com status de erro
+        });
+}
+
 
 module.exports = {
     GuardarResposta,
-    VerificarResposta
+    VerificarResposta,
+    kpiResposta
 }
