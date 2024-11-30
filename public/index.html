@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AquaTech | Página Inicial</title>
+
+    <script src="./js/sessao.js"></script>
+
+    <link rel="stylesheet" href="./css/estilo.css">
+</head>
+
+<body>
+
+  <div class="menu-aberto" id="menuAba">
+
+    <a href="index.html"><button>Página Inicial</button></a>
+    <a href="Login.html"><button>Login</button></a>
+    <a href="Cadastro.html"><button>Cadastro</button></a>
+
+  </div>
+
+  <!-- Cabeçalho -->
+  <header class="header">
+    <button class="menu-icon" onclick="MenuInteracao()">☰</button>
+    <h1>Gandin Skate School</h1>
+    <div class="user-icon">🔒</div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <div class="login-container">
+    <div class="title-container">
+      <h1>Bem-vindo à <br> Gandin Skate School</h1>
+      <p>Descubra o mundo do skate</p>
+      <a href="Cadastro.html"><button class="main-button">Comece Agora</button></a>
+    </div>
+  </div>
+
+</body>
+
+</html>
+<script>
+  function MenuInteracao() {
+    var menu = document.getElementById("menuAba");
+
+    if (menu.style.display === "none" || menu.style.display === "") {
+      menu.style.display = "block"; // Mostra o menu
+      setTimeout(() => {
+        menu.classList.add("show"); // Adiciona a classe show
+      }, 10); // Adiciona um pequeno atraso para que a animação funcione
+    } else {
+      menu.classList.remove("show"); // Remove a classe show
+      setTimeout(() => {
+        menu.style.display = "none"; // Oculta o menu após a animação
+      }, 300); // Aguarda a animação terminar antes de ocultar
+    }
+  }
+</script>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AquaTech | Login</title>
+
+    <script src="./js/sessao.js"></script>
+
+    <link rel="stylesheet" href="./css/estilo.css">
+    
+</head>
+
+<body>
+
+    <div class="menu-aberto" id="menuAba">
+  
+      <a href="index.html"><button>Página Inicial</button></a>
+      <a href="Login.html"><button>Login</button></a>
+      <a href="Cadastro.html"><button>Cadastro</button></a>
+    </div>
+    <!-- Menu oculto -->
+    <header class="header">
+      <button class="menu-icon" onclick="MenuInteracao()">☰</button>
+      <h1>Gandin Skate School</h1>
+      <div class="user-icon">🔒</div>
+    </header>
+  
+  
+  
+  
+    <div class="login-container">
+      <div class="login-box">
+        <h2>Login</h2>
+        
+          <label for="email">E-MAIL</label>
+          <input type="email" id="email_input" placeholder="Insira seu e-mail">
+  
+          <label for="password">Senha</label>
+          <input type="password" id="senha_input" placeholder="*******">
+          <button class="botao" onclick="entrar()">Entrar</button>
+  
+        
+      </div>
+    </div>
+    </div>
+  
+    </div>
+  </body>
+
+</html>
+
+<script>
+function MenuInteracao() {
+    var menu = document.getElementById("menuAba");
+
+    if (menu.style.display === "none" || menu.style.display === "") {
+      menu.style.display = "block"; // Mostra o menu
+      setTimeout(() => {
+        menu.classList.add("show"); // Adiciona a classe show
+      }, 10); // Adiciona um pequeno atraso para que a animação funcione
+    } else {
+      menu.classList.remove("show"); // Remove a classe show
+      setTimeout(() => {
+        menu.style.display = "none"; // Oculta o menu após a animação
+      }, 300); // Aguarda a animação terminar antes de ocultar
+    }
+  }
+
+    function entrar() {
+        
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+       
+
+        if (emailVar == "" || senhaVar == "") {
+            
+            alert('Mensagem de erro para todos os campos em branco');
+            return false;
+        }
+       
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+                
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.CPF_USUARIO = json.cpf;
+                    sessionStorage.ID_USUARIO = json.id;
+                    
+                    setTimeout(function () {
+                        window.location = "/PáginaUsuário.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+</script>
