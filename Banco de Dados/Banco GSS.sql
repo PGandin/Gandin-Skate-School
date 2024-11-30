@@ -9,15 +9,9 @@ CPF VARCHAR(11),
 Senha VARCHAR(50)
 );
 
-CREATE TABLE Login(
-idUsuario INT PRIMARY KEY AUTO_INCREMENT,
-Email VARCHAR(100),
-Senha VARCHAR(50),
-fkCadastro INT,
-CONSTRAINT fkCadastroLogin FOREIGN KEY (fkCadastro) REFERENCES Cadastro (idCadastro)
-);
-
 CREATE TABLE Nivelamento(
 idNivelamento INT PRIMARY KEY AUTO_INCREMENT,
-Nivel VARCHAR(30)
+Nivel VARCHAR(30),
+fkCadastro int,
+constraint fkNivelamentoCadastro FOREIGN KEY (fkCadastro) REFERENCES Cadastro(idCadastro) 
 );
