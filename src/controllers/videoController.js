@@ -25,23 +25,23 @@ function GuardarResposta(req, res) {
                     res.status(500).json(erro.sqlMessage);
                 }
             );
-    }else{
+    } else {
 
         videoModel.AtualizarResposta(nivelUsuario, video, idUsuario)
-        .then(
-            function (resultado) {
-                res.json(resultado);
-            }
-        ).catch(
-            function (erro) {
-                console.log(erro);
-                console.log(
-                    "\nHouve um erro ao realizar o cadastro! Erro: ",
-                    erro.sqlMessage
-                );
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
     }
 }
 
@@ -51,7 +51,7 @@ function VerificarResposta(req, res) {
     var idUsuario = req.body.idUsuario
 
 
-        videoModel.VerificarResposta(video, idUsuario)
+    videoModel.VerificarResposta(video, idUsuario)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -66,7 +66,7 @@ function VerificarResposta(req, res) {
                 res.status(500).json(erro.sqlMessage);
             }
         );
-    
+
 }
 function kpiResposta(req, res) {
     // Captura o parâmetro 'id' da URL
@@ -86,10 +86,37 @@ function kpiResposta(req, res) {
             res.status(500).json(erro.sqlMessage); // Responde com status de erro
         });
 }
+function ArmazenarManobra(req, res) {
+
+    var idUsuario = req.body.idUsuario
+    var Manobra = req.body.Manobra
+    var qtdAcertos = req.body.qtdAcertos
+
+
+    videoModel.ArmazenarManobra(idUsuario, Manobra, qtdAcertos)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+
 
 
 module.exports = {
     GuardarResposta,
     VerificarResposta,
-    kpiResposta
+    kpiResposta,
+    ArmazenarManobra
+
 }

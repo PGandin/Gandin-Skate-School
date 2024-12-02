@@ -39,11 +39,15 @@
 
         <!-- Manobras Iniciantes -->>
         <div class="video-card">
-          <p>Manobra: Ollie - Dificuldade: Iniciante</p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/JSIW1IMUoVk?si=yTKj9Ov9lEAUyMSI"
-            title="YouTube video player" frameborder="0"
+          <h2>Manobra: Ollie - Dificuldade: Iniciante</h2>
+
+          <iframe style="border-radius: 20px;" width="560" height="315"
+            src="https://www.youtube.com/embed/JSIW1IMUoVk?si=yTKj9Ov9lEAUyMSI" title="YouTube video player"
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
+
 
           <p>O Ollie funciona assim: você começa posicionando os pés no skate, com um pé na parte de trás e o outro mais
             no meio. Primeiro, você bate com força a parte de trás no chão, como se fosse dar um impulso. Ao mesmo
@@ -51,20 +55,24 @@
             chão. Quando estiver no ar, você dobra os joelhos para ganhar altura e, na hora de descer, tenta pousar com
             os dois pés em cima, perto dos parafusos, para manter o equilíbrio.</p>
           <p>Como está o aprendizado da manobra ?</p>
-          <select id="andamento1">
+          <select class="select-usuario" id="andamento1">
             <option value="1">Em andamento</option>
             <option value="2">Não tentei ainda</option>
             <option value="3">Já acertei</option>
           </select>
-          <button onclick="GuardarResposta(andamento1.value, 1)">✅</button>
+          <button class="botao-select" onclick="GuardarResposta(andamento1.value, 1)">✅</button><br><br>
+          Quantas vezes já acertou ?<br>
+          <input min="0" class="ManobrasAcertadas" type="number" id="manobra1">
+          <button class="botao-select" onclick="ArmazenarManobra(sessionStorage.ID_USUARIO, 'ollie' ,manobra1.value)">✅</button>
         </div>
 
 
 
         <div class="video-card">
-          <p>Manobra: Varial - Dificuldade: Iniciante</p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/fm8eumBfyH8?si=vpkjYHHJHRYQ6oLq"
-            title="YouTube video player" frameborder="0"
+          <h2>Manobra: Varial - Dificuldade: Iniciante</h2>
+          <iframe style="border-radius: 20px;" width="560" height="315"
+            src="https://www.youtube.com/embed/fm8eumBfyH8?si=vpkjYHHJHRYQ6oLq" title="YouTube video player"
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
 
@@ -81,17 +89,21 @@
             controle do movimento é essencial, então comece em uma superfície plana até ganhar confiança!</p>
 
           <p>Como está o aprendizado da manobra ?</p>
-          <select id="andamento2">
+          <select class="select-usuario" id="andamento2">
             <option value="1">Em andamento</option>
             <option value="2">Não tentei ainda</option>
             <option value="3">Já acertei</option>
           </select>
-          <button onclick="GuardarResposta(andamento2.value, 2)">✅</button>
+          <button class="botao-select" onclick="GuardarResposta(andamento2.value, 2)">✅</button><br><br>
+          Quantas vezes já acertou ?<br>
+          <input min="0" class="ManobrasAcertadas" type="number" id="manobra2">
+          <button class="botao-select" onclick="ArmazenarManobra(sessionStorage.ID_USUARIO, 'varial' ,manobra2.value)">✅</button>
         </div>
 
         <div class="video-card">
-          <p>Manobra: Ollie de Front - Dificuldade: Iniciante</p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/lYVMKEsDsKU?si=jQazvHaLkKEiSjWt"
+
+          <h2>Manobra: Ollie de Front - Dificuldade: Iniciante</h2>
+          <iframe style= "border-radius: 10ox;" width="560" height="315" src="https://www.youtube.com/embed/s6JphmhYqOw?si=Ndqnnpb2yrcrZP4i"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
@@ -108,20 +120,25 @@
             Front. Comece em uma superfície plana e vá evoluindo! </p>
 
           <p>Como está o aprendizado da manobra ?</p>
-          <select id="andamento3">
+          <select class="select-usuario" id="andamento3">
             <option value="1">Em andamento</option>
             <option value="2">Não tentei ainda</option>
             <option value="3">Já acertei</option>
           </select>
-          <button onclick="GuardarResposta(andamento3.value, 3)">✅</button>
+          <button class="botao-select" onclick="GuardarResposta(andamento3.value, 3)">✅</button><br><br>
+          Quantas vezes já acertou ?<br>
+          <input min="0" class="ManobrasAcertadas" type="number" id="manobra3">
+          <button class="botao-select" onclick="ArmazenarManobra(sessionStorage.ID_USUARIO, 'olliefront' ,manobra3.value)">✅</button>
         </div>
 
         <!-- Manobras Intermediárias -->
 
         <div class="video-card">
-          <p>Manobra: Flip - Dificuldade: Intermediário</p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/A70jcTGDFss?si=EtfP0CQq8zyyHurd"
-            title="YouTube video player" frameborder="0"
+
+          <h2>Manobra: Flip - Dificuldade: Intermediário</h2>
+          <iframe style="border-radius: 20px;" width="560" height="315"
+            src="https://www.youtube.com/embed/A70jcTGDFss?si=EtfP0CQq8zyyHurd" title="YouTube video player"
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
 
@@ -133,18 +150,23 @@
             do flip é essencial para acertar essa manobra!</p>
 
           <p>Como está o aprendizado da manobra ?</p>
-          <select id="andamento4">
+          <select class="select-usuario" id="andamento4">
             <option value="1">Em andamento</option>
             <option value="2">Não tentei ainda</option>
             <option value="3">Já acertei</option>
           </select>
-          <button onclick="GuardarResposta(andamento4.value, 4)">✅</button>
+          <button class="botao-select" onclick="GuardarResposta(andamento4.value, 4)">✅</button><br><br>
+          Quantas vezes já acertou ?<br>
+          <input min="0" class="ManobrasAcertadas" type="number" id="manobra4">
+          <button class="botao-select" onclick="ArmazenarManobra(sessionStorage.ID_USUARIO, 'flip' ,manobra4.value)">✅</button>
         </div>
 
         <div class="video-card">
-          <p>Manobra: Feak Ollie - Dificuldade: Intermediário</p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/aXhYElkaKxs?si=GmWGBVVYHlaGEXPk"
-            title="YouTube video player" frameborder="0"
+
+          <h2>Manobra: Fakie Ollie - Dificuldade: Intermediário</h2>
+          <iframe style="border-radius: 20px;" width="560" height="315"
+            src="https://www.youtube.com/embed/aXhYElkaKxs?si=GmWGBVVYHlaGEXPk" title="YouTube video player"
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
 
@@ -155,19 +177,23 @@
             joelhos. O desafio aqui é manter o controle andando de fakie, então pratique bastante!</p>
 
           <p>Como está o aprendizado da manobra ?</p>
-          <select id="andamento5">
+          <select class="select-usuario" id="andamento5">
             <option value="1">Em andamento</option>
             <option value="2">Não tentei ainda</option>
             <option value="3">Já acertei</option>
           </select>
-          <button onclick="GuardarResposta(andamento5.value, 5)">✅</button>
+          <button class="botao-select" onclick="GuardarResposta(andamento5.value, 5)">✅</button><br><br>
+          Quantas vezes já acertou ?<br>
+          <input min="0" class="ManobrasAcertadas" type="number" id="manobra5">
+          <button class="botao-select" onclick="ArmazenarManobra(sessionStorage.ID_USUARIO, 'fakieollie' ,manobra5.value)">✅</button>
         </div>
 
         <div class="video-card">
-          <p>Manobra: Fakie de Front - Dificuldade: Intermediário</p>
 
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/lYVMKEsDsKU?si=fHkyPTleg-KM6usJ"
-            title="YouTube video player" frameborder="0"
+          <h2>Manobra: Fakie de Front - Dificuldade: Intermediário</h2>
+          <iframe style="border-radius: 20px;" width="560" height="315"
+            src="https://www.youtube.com/embed/lYVMKEsDsKU?si=fHkyPTleg-KM6usJ" title="YouTube video player"
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
 
@@ -179,44 +205,52 @@
             sincronizar o giro do corpo com o movimento do skate!</p>
 
           <p>Como está o aprendizado da manobra ?</p>
-          <select id="andamento6">
+          <select class="select-usuario" id="andamento6">
             <option value="1">Em andamento</option>
             <option value="2">Não tentei ainda</option>
             <option value="3">Já acertei</option>
           </select>
-          <button onclick="GuardarResposta(andamento6.value, 6)">✅</button>
+          <button class="botao-select" onclick="GuardarResposta(andamento6.value, 6)">✅</button><br><br>
+          Quantas vezes já acertou ?<br>
+          <input min="0" class="ManobrasAcertadas" type="number" id="manobra6">
+          <button class="botao-select" onclick="ArmazenarManobra(sessionStorage.ID_USUARIO, 'fakiefront' ,manobra6.value)">✅</button>
         </div>
 
         <!--Manobras Avançadas-->
         <div class="video-card">
 
-          <p>Manobra: Feak Big Spin - Dificuldade: Avançado</p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/nN7fDnIBPmc?si=WZQc7LSlxUhkZuYh"
-            title="YouTube video player" frameborder="0"
+
+          <h2>Manobra: 360 Varial - Dificuldade: Avançado</h2>
+          <iframe style="border-radius: 20px;" width="560" height="315"
+            src="https://www.youtube.com/embed/8Runu9ozxAw?si=DA66DUPhlzvwBB6P" title="YouTube video player"
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-          <p>No Fakie Big Spin, você começa andando de fakie. Coloque o pé da frente no nose e o pé de trás perto do
-            tail. Flexione os joelhos e prepare-se para dar o pop. Ao impulsionar o skate com o pé de trás, faça-o girar
-            360 graus enquanto você gira o corpo 180 graus na mesma direção. Durante o giro, mantenha o skate sob
-            controle com o pé da frente. O movimento do corpo deve ser contínuo, acompanhando o skate. Quando o giro
-            estiver completo, alinhe os pés e prepare-se para aterrissar. Flexione os joelhos ao tocar o chão. Praticar
-            a coordenação entre o giro do skate e do corpo é fundamental!</p>
+          <p>O 360 Varial combina dois movimentos principais: um giro completo de 360 graus do skate (o "shuvit") e um
+            flip (giro da prancha). Durante a execução, o skatista impulsiona o tail (parte traseira do skate) com o pé
+            de trás, fazendo o skate girar horizontalmente em um eixo vertical enquanto o pé da frente realiza o
+            movimento do flip. O desafio está em manter o controle durante a rotação completa, garantindo que a prancha
+            volte à posição original para o pouso.</p>
 
           <p>Como está o aprendizado da manobra ?</p>
-          <select id="andamento7">
+          <select class="select-usuario" id="andamento7">
             <option value="1">Em andamento</option>
             <option value="2">Não tentei ainda</option>
             <option value="3">Já acertei</option>
           </select>
-          <button onclick="GuardarResposta(andamento7.value, 7)">✅</button>
+          <button class="botao-select" class="select-usuario"
+            onclick="GuardarResposta(andamento7.value, 7)">✅</button><br><br>
+          Quantas vezes já acertou ?<br>
+          <input min="0" class="ManobrasAcertadas" type="number" id="manobra7">
+          <button class="botao-select" onclick="ArmazenarManobra(sessionStorage.ID_USUARIO, 'varial360' ,manobra7.value)">✅</button>
         </div>
 
         <div class="video-card">
-          <p>Manobra: Ollie de Back - Dificuldade: Avançado</p>
-
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/RXAUUYmtiXs?si=FMMqL6V0lOlx_Lbq"
-            title="YouTube video player" frameborder="0"
+          <h2>Manobra: Ollie de Back - Dificuldade: Avançado</h2>
+          <iframe style="border-radius: 20px;" width="560" height="315"
+            src="https://www.youtube.com/embed/RXAUUYmtiXs?si=FMMqL6V0lOlx_Lbq" title="YouTube video player"
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
 
@@ -228,18 +262,22 @@
             Pratique bastante a rotação do corpo junto com o skate!</p>
 
           <p>Como está o aprendizado da manobra ?</p>
-          <select id="andamento8">
+          <select class="select-usuario" id="andamento8">
             <option value="1">Em andamento</option>
             <option value="2">Não tentei ainda</option>
             <option value="3">Já acertei</option>
           </select>
-          <button onclick="GuardarResposta(andamento8.value, 8)">✅</button>
+          <button class="botao-select" onclick="GuardarResposta(andamento8.value, 8)">✅</button><br><br>
+          Quantas vezes já acertou ?<br>
+          <input min="0" class="ManobrasAcertadas" type="number" id="manobra8">
+          <button class="botao-select" onclick="ArmazenarManobra(sessionStorage.ID_USUARIO, 'ollieback',manobra8.value)">✅</button>
         </div>
 
         <div class="video-card">
-          <p>Manobra: 360 flip - Dificuldade: Avançado</p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/xBakkJMWa5k?si=cdYzXv4ZoYepc6BD"
-            title="YouTube video player" frameborder="0"
+          <h2>Manobra: 360 flip - Dificuldade: Avançado</h2>
+          <iframe style="border-radius: 20px;" width="560" height="315"
+            src="https://www.youtube.com/embed/xBakkJMWa5k?si=cdYzXv4ZoYepc6BD" title="YouTube video player"
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
 
@@ -251,12 +289,15 @@
             manobra está na sincronização dos dois movimentos!</p>
 
           <p>Como está o aprendizado da manobra ?</p>
-          <select id="andamento9">
+          <select class="select-usuario" id="andamento9">
             <option value="1">Em andamento</option>
             <option value="2">Não tentei ainda</option>
             <option value="3">Já acertei</option>
           </select>
-          <button onclick="GuardarResposta(andamento9.value, 9)">✅</button>
+          <button class="botao-select" onclick="GuardarResposta(andamento9.value, 9)">✅</button><br><br>
+          Quantas vezes já acertou ?<br>
+          <input min="0" class="ManobrasAcertadas" type="number" id="manobra9">
+          <button class="botao-select" onclick="ArmazenarManobra(sessionStorage.ID_USUARIO, 'flip360',manobra9.value)">✅</button>
         </div>
       </section>
     </div>
@@ -325,5 +366,35 @@
         console.log(`#ERRO: ${resposta}`);
       });
   }
+
+  
+    async function ArmazenarManobra(idUsuario, Manobra, qtdAcertos) {
+    try {
+      const resposta = await fetch("/video/ArmazenarManobra", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          
+          idUsuario: idUsuario,
+          Manobra: Manobra,
+          qtdAcertos: qtdAcertos
+        }),
+      });
+
+      if (resposta.ok) {
+        const json = await resposta.json();
+        if (json.length != 0) {
+          return true;
+        }
+      }
+    } catch (erro) {
+      console.log(`#ERRO: ${erro}`);
+    }
+
+    return false;
+  }
+  
 
 </script>

@@ -37,9 +37,21 @@ function kpiResposta(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function ArmazenarManobra(idUsuario, Manobra, qtdAcertos) {
+
+    var instrucaoSql = `
+        
+    INSERT INTO Manobras (fkCadastro, ${Manobra})VALUES 
+                            ('${idUsuario}', '${qtdAcertos}')
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
 module.exports = {
     InserirResposta,
     AtualizarResposta,
     VerificarResposta,
-    kpiResposta
+    kpiResposta,
+    ArmazenarManobra
+
 };

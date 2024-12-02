@@ -557,3 +557,32 @@ canvas {
   max-height: 400px;  /* Ajuste conforme necessário */
 }
 
+.ManobrasAcertadas{
+  padding: 3px 5px;
+  width: 50px;
+  border-radius: 10px;
+  border-color: #f9b208;
+  background-color: #ffffffb4;
+  border-width: 1px;
+}
+.ManobrasAcertadas:focus{
+  outline: none;
+  
+  
+}
+
+.select-usuario{
+  padding:3px;
+  border-radius: 10px;
+  border-color: #f9b208;
+  background-color: #ffffffb4;
+}
+
+.botao-select{
+  padding: 2px;
+  border-radius: 10px;
+  border-color: #f9b208;
+  background-color: #ffffffb4;
+  border-width: 1px;
+  background-color: rgb(49, 215, 49);
+}

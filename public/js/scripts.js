@@ -25,7 +25,7 @@ const manobrasChart = new Chart(ctxManobras, {
     }
 });
 
-// Gráfico de Usuários Cadastrados
+/* / Gráfico de Usuários Cadastrados
 const ctxUsuarios = document.getElementById('usuariosChart').getContext('2d');
 const usuariosChart = new Chart(ctxUsuarios, {
     type: 'bar',
@@ -48,3 +48,4 @@ const usuariosChart = new Chart(ctxUsuarios, {
         }
     }
 });
+ */

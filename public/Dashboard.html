@@ -48,7 +48,7 @@
 
         <div class="kpi-box" id="kpi-intermediario">
           <p>🟡Intermediário</p>
-          <select id="Intermediario">
+          <select id="Intermediario" onchange="SelectIntermediario()">
             <option value=4>Flip</option>
             <option value=5>Fakie Ollie</option>
             <option value=6>Fakie Ollie de Front</option>
@@ -58,7 +58,7 @@
 
         <div class="kpi-box" id="kpi-avancado">
           <p>🔴Avançado</p>
-          <select id="Avancado">
+          <select id="Avancado" onchange="SelectAvancado()">
             <option value=7>360 Varial</option>
             <option value=8>Ollie de Back</option>
             <option value=9>360 Flip</option>
@@ -236,7 +236,7 @@
 
           var ListaJson = listaJason
 
-          if (Intermediario.value == 1) {
+          if (Intermediario.value == 4) {
 
             for (var PosicaoListaJson = 0; PosicaoListaJson < ListaJson.length; PosicaoListaJson++) {
 
@@ -260,7 +260,7 @@
           }
 
 
-          if (Intermediario.value == 2) {
+          if (Intermediario.value == 5) {
 
             for (var PosicaoListaJson = 0; PosicaoListaJson < ListaJson.length; PosicaoListaJson++) {
 
@@ -283,7 +283,7 @@
             }
           }
 
-          if (Intermediario.value == 3) {
+          if (Intermediario.value == 6) {
 
             for (var PosicaoListaJson = 0; PosicaoListaJson < ListaJson.length; PosicaoListaJson++) {
 
@@ -292,13 +292,13 @@
               if (ListaJson[PosicaoListaJson].idVideo == 6) {
 
                 if (ListaJson[PosicaoListaJson].Nivel == 1) {
-                  kpiIniciante.innerHTML = `Em andamento`
+                  kpiIntermediario.innerHTML = `Em andamento`
                 }
                 else if (ListaJson[PosicaoListaJson].Nivel == 2) {
-                  kpiIniciante.innerHTML = `Não tentei ainda`
+                  kpiIntermediario.innerHTML = `Não tentei ainda`
                 }
                 else if (ListaJson[PosicaoListaJson].Nivel == 3) {
-                  kpiIniciante.innerHTML = `Já acertei`
+                  kpiIntermediario.innerHTML = `Já acertei`
                 }
               }
 
@@ -311,7 +311,7 @@
 
           var ListaJson = listaJason
 
-          if (Avancado.value == 1) {
+          if (Avancado.value == 7) {
 
             for (var PosicaoListaJson = 0; PosicaoListaJson < ListaJson.length; PosicaoListaJson++) {
 
@@ -335,7 +335,7 @@
           }
 
 
-          if (Avancado.value == 2) {
+          if (Avancado.value == 8) {
 
             for (var PosicaoListaJson = 0; PosicaoListaJson < ListaJson.length; PosicaoListaJson++) {
 
@@ -358,7 +358,7 @@
             }
           }
 
-          if (Avancado.value == 3) {
+          if (Avancado.value == 9) {
 
             for (var PosicaoListaJson = 0; PosicaoListaJson < ListaJson.length; PosicaoListaJson++) {
 
@@ -379,4 +379,7 @@
             }
           }
         }
+
+        // DashBoard de Barra
+        
       </script>

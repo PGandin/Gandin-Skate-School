@@ -12,5 +12,7 @@ router.post("/VerificarResposta", function (req, res) {
 router.get("/kpiResposta/:id", function (req, res) {
     videoController.kpiResposta(req, res);
 })
-
+router.post("/ArmazenarManobra", function (req, res) {
+    videoController.ArmazenarManobra(req, res);
+})
 module.exports = router;
