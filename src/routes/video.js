@@ -15,7 +15,7 @@ router.get("/kpiResposta/:id", function (req, res) {
 router.post("/ArmazenarManobra", function (req, res) {
     videoController.ArmazenarManobra(req, res);
 })
-router.get("/VerificarManobra/:id", function (req, res) {
+router.get("/VerificarManobra/:idUsuario", function (req, res) {
     videoController.VerificarManobra(req, res);
 })
 router.post("/AtualizarManobra", function (req, res) {

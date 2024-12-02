@@ -10,7 +10,7 @@
   <link rel="icon" href="assets/Imagens PI GSS/Imagens usadas/ImagenSite.ico" type="image/x-icon">
 </head>
 
-<body onload="VerificarProgresso()">
+<body>
 
   <!-- Cabeçalho -->
   <header class="header">
@@ -35,12 +35,12 @@
     <div class="dashboard-container">
       <div class="kpi-box1">
         <p>Skatistas na Gandin Skate School</p> <br>
-                  <p id="plotarCadastros"></p>
+        <p id="plotarCadastros"></p>
 
       </div>
       <!-- KPIs -->
       <div class="kpi-container">
-        
+
 
         <div class="kpi-box" id="kpi-iniciante">
           <p>🟢Iniciante</p>
@@ -82,13 +82,13 @@
     </div>
 
     <script src="js/scripts.js"></script>
-    </head>
-
-    <body>
+    
+</body>
+    
       <script>
 
         var listaJason
-
+        VerificarProgresso()
         async function VerificarProgresso() {
           try {
             var idUsuario = sessionStorage.ID_USUARIO
@@ -103,8 +103,10 @@
               const json = await resposta.json();
               console.log(json)
               if (json.length != 0) {
+                console.log(json)
                 AtualizarKPI(json)
                 listaJason = json
+    
                 return true;
               }
             }
@@ -137,7 +139,7 @@
 
               if (ListaJson[PosicaoListaJson].Nivel == 1) {
                 kpiIntermediario.innerHTML = `Em andamento`
-              }x
+              } 
               if (ListaJson[PosicaoListaJson].Nivel == 2) {
                 kpiIntermediario.innerHTML = `Não tentei ainda`
               }
@@ -384,27 +386,27 @@
         }
 
         async function PostarUsuarios() {
-    try {
-      var idUsuario = sessionStorage.ID_USUARIO
-      const resposta = await fetch(`/video/PostarUsuarios`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+          try {
+            var idUsuario = sessionStorage.ID_USUARIO
+            const resposta = await fetch(`/video/PostarUsuarios`, {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            });
 
-      if (resposta.ok) {
-        const json = await resposta.json();
-        console.log(json)
-        plotarCadastros.innerHTML = json[0].Contador
-      }
-    }
-    catch (erro) {
-      console.log(`#ERRO: ${erro}`);
-    }
+            if (resposta.ok) {
+              const json = await resposta.json();
+              console.log(json)
+              plotarCadastros.innerHTML = json[0].Contador
+            }
+          }
+          catch (erro) {
+            console.log(`#ERRO: ${erro}`);
+          }
 
-    return false;
+          return false;
 
-  }
+        }
         window.onload = PostarUsuarios()
       </script>

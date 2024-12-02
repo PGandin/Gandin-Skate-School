@@ -43,7 +43,7 @@ function ArmazenarManobra(idUsuario, Manobra, qtdAcertos) {
     var instrucaoSql = `
         
     INSERT INTO Manobras (fkCadastro, ${Manobra})VALUES 
-                            ('${idUsuario}', '${qtdAcertos}')
+                            (${idUsuario}, ${qtdAcertos})
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -64,7 +64,7 @@ function AtualizarManobra(idUsuario, Manobra, qtdAcertos) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
-function PostarManobra (idUsuario) {
+function PostarManobra(idUsuario) {
 
     var instrucaoSql = `
         SELECT * FROM Manobras WHERE fkCadastro = ${idUsuario};
@@ -72,10 +72,10 @@ function PostarManobra (idUsuario) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
-function PostarUsuarios () {
+function PostarUsuarios() {
 
     var instrucaoSql = `
-        SELECT count(idCadastro) as 'Contador' FROM Cadastro;
+        SELECT count(idCadastro) as Contador FROM Cadastro;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);

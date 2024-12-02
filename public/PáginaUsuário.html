@@ -420,7 +420,8 @@
         console.log(json)
 
         if (json.length != 0) {
-          AtualizarManobra(idUsuario, Manobra, json[0].Manobra + qtdAcertos)
+          var valorManobra = json[0].Manobra || 0
+          AtualizarManobra(idUsuario, Manobra, valorManobra + Number(qtdAcertos))
 
         } else {
           ArmazenarManobra(idUsuario, Manobra, qtdAcertos)

@@ -1,5 +1,5 @@
 
-async function PostarManobra() {
+async function PostarManobra(qtdAcertos) {
     try {
       var idUsuario = JSON.parse(sessionStorage.ID_USUARIO)
       const resposta = await fetch(`/video/PostarManobra/${idUsuario}`, {
@@ -15,12 +15,12 @@ async function PostarManobra() {
         var qtdAcertos = [
             0,0,0,0,0,0,0,0,0
         ]
-
-        if(json[0].ollie != 0){
+        
+        if(json[0].ollie != 0 || json[0].ollie == 0){
 
             qtdAcertos.splice(0, 1, json[0].ollie)
         }
-        if(json[0].varial != 0){
+        if(json[0].varial != 0 || json[0].varial == 0){
 
             qtdAcertos.splice(1, 1, json[0].varial)
         }
@@ -28,7 +28,7 @@ async function PostarManobra() {
 
             qtdAcertos.splice(2, 1, json[0].olliefront)
         }
-        if(json[0].flip != 0){
+        if(json[0].flip != 0 || json[0].flip == 0){
 
             qtdAcertos.splice(3, 1, json[0].flip)
         }
