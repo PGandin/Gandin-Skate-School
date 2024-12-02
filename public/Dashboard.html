@@ -33,8 +33,14 @@
     </aside>
 
     <div class="dashboard-container">
+      <div class="kpi-box1">
+        <p>Skatistas na Gandin Skate School</p> <br>
+                  <p id="plotarCadastros"></p>
+
+      </div>
       <!-- KPIs -->
       <div class="kpi-container">
+        
 
         <div class="kpi-box" id="kpi-iniciante">
           <p>🟢Iniciante</p>
@@ -71,9 +77,6 @@
       <div class="charts-container">
         <div class="chart-box">
           <canvas id="manobrasChart"></canvas>
-        </div>
-        <div class="chart-box">
-          <canvas id="usuariosChart"></canvas>
         </div>
       </div>
     </div>
@@ -134,7 +137,7 @@
 
               if (ListaJson[PosicaoListaJson].Nivel == 1) {
                 kpiIntermediario.innerHTML = `Em andamento`
-              }
+              }x
               if (ListaJson[PosicaoListaJson].Nivel == 2) {
                 kpiIntermediario.innerHTML = `Não tentei ainda`
               }
@@ -380,6 +383,28 @@
           }
         }
 
-        // DashBoard de Barra
-        
+        async function PostarUsuarios() {
+    try {
+      var idUsuario = sessionStorage.ID_USUARIO
+      const resposta = await fetch(`/video/PostarUsuarios`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (resposta.ok) {
+        const json = await resposta.json();
+        console.log(json)
+        plotarCadastros.innerHTML = json[0].Contador
+      }
+    }
+    catch (erro) {
+      console.log(`#ERRO: ${erro}`);
+    }
+
+    return false;
+
+  }
+        window.onload = PostarUsuarios()
       </script>

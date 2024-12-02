@@ -110,6 +110,94 @@ function ArmazenarManobra(req, res) {
         );
 
 }
+function VerificarManobra(req, res) {
+
+    var idUsuario = req.params.idUsuario
+
+
+    videoModel.VerificarManobra(idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+function AtualizarManobra(req, res) {
+
+    var idUsuario = req.body.idUsuario
+    var Manobra = req.body.Manobra 
+    var qtdAcertos = req.body.qtdAcertos
+
+    videoModel.AtualizarManobra(idUsuario, Manobra, qtdAcertos)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+function PostarManobra (req, res) {
+
+    var idUsuario = req.params.idUsuario
+
+
+    videoModel.PostarManobra(idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+function PostarUsuarios (req, res) {
+
+    videoModel.PostarUsuarios()
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+
+
 
 
 
@@ -117,6 +205,10 @@ module.exports = {
     GuardarResposta,
     VerificarResposta,
     kpiResposta,
-    ArmazenarManobra
+    ArmazenarManobra,
+    VerificarManobra,
+    AtualizarManobra,
+    PostarManobra,
+    PostarUsuarios
 
 }

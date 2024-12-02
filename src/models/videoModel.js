@@ -1,3 +1,4 @@
+/* const { VerificarManobra } = require("../controllers/videoController"); */
 var database = require("../database/config")
 
 function AtualizarResposta(nivelUsuario, video, idUsuario) {
@@ -47,11 +48,48 @@ function ArmazenarManobra(idUsuario, Manobra, qtdAcertos) {
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
+function VerificarManobra(idUsuario) {
+
+    var instrucaoSql = `
+        SELECT * FROM Manobras WHERE fkCadastro = ${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+function AtualizarManobra(idUsuario, Manobra, qtdAcertos) {
+
+    var instrucaoSql = `
+     UPDATE Manobras SET ${Manobra} = ${qtdAcertos} WHERE fkCadastro = ${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+function PostarManobra (idUsuario) {
+
+    var instrucaoSql = `
+        SELECT * FROM Manobras WHERE fkCadastro = ${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+function PostarUsuarios () {
+
+    var instrucaoSql = `
+        SELECT count(idCadastro) as 'Contador' FROM Cadastro;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     InserirResposta,
     AtualizarResposta,
     VerificarResposta,
     kpiResposta,
-    ArmazenarManobra
+    ArmazenarManobra,
+    VerificarManobra,
+    AtualizarManobra,
+    PostarManobra,
+    PostarUsuarios
 
 };

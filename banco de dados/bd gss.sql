@@ -1,5 +1,6 @@
-CREATE DATABASE GSS;
 use GSS;
+describe Nivelamento;
+
 USE GSS;
 show tables;
 CREATE TABLE Cadastro(
@@ -30,7 +31,13 @@ fakiefront INT,
 varial360 INT,
 ollieback INT,
 flip360 INT,
-fkCadastro INT
+fkCadastro INT,
+Constraint fkManobrasCadastro FOREIGN KEY (fkCadastro) REFERENCES Cadastro(idCadastro)
 );
+SELECT * FROM Manobras;
+
+INSERT INTO Manobras (ollie, varial, olliefront, flip, fakieollie, fakiefront, varial360, ollieback, flip360, fkCadastro)VALUES
+(1, 3, 4, 6, 7, 7, 8, 9, 1, 1);
+
 
 SELECT Nivel, idVideo FROM Nivelamento WHERE fkCadastro = 1 order by idVideo;
